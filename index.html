@@ -699,10 +699,13 @@ body::before{opacity:.24;background-image:
   radial-gradient(circle at 20% 20%,rgba(16,42,67,.12) 0 1px,transparent 1.5px);
   background-size:56px 56px,56px 56px,18px 18px}
 body::after{content:"";position:fixed;z-index:1;right:-1.5rem;left:-1.5rem;top:4.5rem;bottom:-1.5rem;width:auto;pointer-events:none;opacity:.58;
-  background-image:radial-gradient(circle,rgba(16,42,67,.36) 0 1.8px,transparent 2.5px);
+  background-image:
+    radial-gradient(circle,rgba(16,42,67,.30) 0 1.8px,transparent 2.5px),
+    radial-gradient(circle,rgba(245,138,98,.48) 0 1.7px,transparent 2.4px);
+  background-position:0 0,14px 14px;
   background-size:28px 28px;
-  mask-image:linear-gradient(90deg,rgba(0,0,0,.25),#000 24%,#000 100%);
-  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.25),#000 24%,#000 100%);
+  mask-image:linear-gradient(90deg,rgba(0,0,0,.42),#000 15%,#000 72%,rgba(0,0,0,.78));
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.42),#000 15%,#000 72%,rgba(0,0,0,.78));
   animation:dotDrift 14s ease-in-out infinite alternate}
 @keyframes dotDrift{from{transform:translate3d(-.35rem,.1rem,0)}to{transform:translate3d(.55rem,-.45rem,0)}}
 #gl,.glow{display:none!important}
