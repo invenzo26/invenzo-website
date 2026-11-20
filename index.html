@@ -194,6 +194,9 @@ body.moved .hint{opacity:0;pointer-events:none}
 
 /* ---------- phones and small windows ---------- */
 @media (max-width:899px){
+  .ch::before{content:"";position:absolute;z-index:0;right:-5.5rem;top:4.8rem;width:11rem;height:11rem;border:8px solid rgba(245,138,98,.20);border-left-width:3px;border-bottom-width:3px;border-radius:50%;pointer-events:none}
+  .ch::after{content:"";position:absolute;z-index:0;right:1.15rem;bottom:4.2rem;width:3.8rem;height:3.8rem;border-right:2px solid rgba(16,42,67,.16);border-bottom:2px solid rgba(245,138,98,.38);border-radius:0 0 3.8rem 0;pointer-events:none}
+  .ch .in{position:relative;z-index:2}
   body::after{opacity:.28}
   .in>*{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;box-shadow:none!important}
   .nav,.wa span{display:none}
@@ -916,9 +919,18 @@ input:focus-visible,textarea:focus-visible{border-color:var(--coral)!important;b
   #home .kpis strong{font-size:1.22em}
   #home .chart{height:6.2em}
   .founder{background:var(--night)}
-  .founder .l{background:transparent;padding:1.25rem;margin:-1rem -1.25rem 0}
+  .founder .l{background:transparent;padding:0;margin:0}
+  #founder .in{row-gap:.8rem!important}
+  #founder .eyebrow{margin-bottom:.45rem;font-size:.68rem}
+  #founder h2{font-size:clamp(2rem,9vw,3.2rem)!important;line-height:1.02!important}
+  #founder .lead{font-size:.92rem!important;line-height:1.45!important;margin-top:.65rem}
+  #founder .founder-signature{margin-top:.75rem}
+  #founder .founder-signature strong{font-size:1.05rem}
+  #founder .founder-signature span{font-size:.78rem}
   .founder-note{min-height:0}
-  .founder-photo{height:21rem!important;object-position:center 18%!important}
+  .founder-photo{height:min(43svh,19rem)!important;object-position:center 20%!important;border-radius:2px 24px 2px 24px!important;box-shadow:8px 8px 0 rgba(245,138,98,.18)!important}
+  #founder .founder-note p{display:none}
+  #founder .founder-note small{display:none}
   .svr{display:none}
   #proof .in{grid-template-columns:1fr!important}
   .proof-metrics .stats{grid-template-columns:1fr 1fr}
