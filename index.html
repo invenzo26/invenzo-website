@@ -702,8 +702,9 @@ body::after{content:"";position:fixed;z-index:1;right:-1.5rem;left:-1.5rem;top:4
 #gl,.glow{display:none!important}
 #stage{position:fixed;z-index:2;inset:0;perspective:1200px}
 .top{position:fixed;z-index:40;padding:10px 5vw 9px;background:rgba(237,246,255,.92);border-bottom:1px solid rgba(16,42,67,.10);box-shadow:0 8px 24px rgba(16,42,67,.055)}
-.brand{padding:.25rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
-.brand img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(16,42,67,.24))}
+.brand{position:relative;padding:.25rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.brand img{position:relative;z-index:1;width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(16,42,67,.18))}
+.brand::before{content:"";position:absolute;z-index:0;left:-7px;top:50%;width:50px;height:50px;transform:translateY(-50%);border-radius:50%;background:var(--ink);box-shadow:0 8px 20px rgba(16,42,67,.18)}
 .brand b{color:var(--ink)}
 .nav{border:1px solid rgba(16,42,67,.10);border-radius:999px;background:rgba(255,255,255,.72);padding:.18rem}
 .nav button{padding:.46rem .82rem;border-radius:999px;color:var(--body-ink)}
