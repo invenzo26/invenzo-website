@@ -1128,6 +1128,113 @@ body{font-family:var(--font-interface);font-size:var(--type-body);line-height:1.
   #stage .menu button,#stage .rail button{transition:none!important}
   #stage .btn:hover,#stage .ctl button:hover{transform:none!important}
 }
+
+/* ---------- Calm atmospheric background + selective glass surfaces ---------- */
+body{background:
+  radial-gradient(54rem 38rem at 9% 8%,rgba(245,138,98,.12),transparent 72%),
+  radial-gradient(68rem 48rem at 82% 14%,rgba(185,215,234,.56),transparent 70%),
+  radial-gradient(48rem 40rem at 76% 88%,rgba(72,106,138,.10),transparent 74%),
+  linear-gradient(145deg,#EDF6FF 0%,#F5F9FC 54%,#EAF3FA 100%)}
+body::before{opacity:.14;background-size:72px 72px,72px 72px,24px 24px}
+body::after{
+  opacity:.24;
+  background-image:
+    radial-gradient(circle,rgba(16,42,67,.20) 0 1.2px,transparent 1.9px),
+    radial-gradient(circle,rgba(245,138,98,.24) 0 1.1px,transparent 1.8px);
+  background-size:38px 38px;
+  animation:dotDrift 24s ease-in-out infinite alternate
+}
+.top{
+  background:rgba(247,205,180,.96);
+  border-bottom-color:rgba(16,42,67,.16);
+  box-shadow:0 10px 28px rgba(16,42,67,.10),inset 0 1px 0 rgba(255,255,255,.42)
+}
+.nav{
+  background:rgba(255,255,255,.94);
+  border-color:rgba(16,42,67,.12);
+  box-shadow:0 8px 24px rgba(16,42,67,.08),inset 0 1px 0 rgba(255,255,255,.9)
+}
+#stage .tag{
+  background:rgba(255,255,255,.92);
+  border-color:rgba(16,42,67,.14);
+  box-shadow:0 18px 42px rgba(16,42,67,.10),inset 0 1px 0 rgba(255,255,255,.9)
+}
+#stage .sv{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(16,42,67,.16)!important;
+  box-shadow:0 24px 54px rgba(16,42,67,.14),inset 0 1px 0 rgba(255,255,255,.96)!important
+}
+#stage .web-why{
+  padding:1rem 1.1rem;border:1px solid rgba(16,42,67,.12);
+  border-left:3px solid var(--coral);border-radius:4px 16px 16px 4px;
+  background:rgba(255,255,255,.90);
+  box-shadow:0 12px 30px rgba(16,42,67,.07),inset 0 1px 0 rgba(255,255,255,.92)
+}
+#stage .proof-metrics .stat,#stage .corners .f,#stage .stackc .corners .f{
+  background:rgba(255,255,255,.92);
+  border-color:rgba(16,42,67,.14);
+  box-shadow:0 16px 38px rgba(16,42,67,.09),inset 0 1px 0 rgba(255,255,255,.94)
+}
+#stage .core,#stage .glass,#stage .pinfo,#stage .tracks li{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(16,42,67,.14)!important;
+  box-shadow:0 18px 42px rgba(16,42,67,.09),inset 0 1px 0 rgba(255,255,255,.96)!important
+}
+#stage .chan a{
+  background:rgba(255,255,255,.92)!important;
+  border-color:rgba(16,42,67,.13)!important;
+  box-shadow:0 8px 22px rgba(16,42,67,.055)
+}
+#stage .chatgpt-card{
+  background:rgba(255,255,255,.94);
+  border-color:rgba(16,42,67,.15);
+  box-shadow:0 16px 42px rgba(16,42,67,.09),inset 0 1px 0 rgba(255,255,255,.96);
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease
+}
+#stage .pc .cap,#stage .dk .tx{
+  background:rgba(237,246,255,.96);
+  border-top:1px solid rgba(255,255,255,.82);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72)
+}
+#stage .pc,#stage .dk{transition:border-color .28s ease,box-shadow .28s ease}
+#stage .pc.front:hover,#stage .dk.cf:hover{
+  border-color:rgba(245,138,98,.82)!important;
+  box-shadow:0 26px 62px rgba(16,42,67,.18),0 0 0 1px rgba(245,138,98,.18)!important
+}
+#stage .chatgpt-card:hover{
+  transform:translateY(-3px);border-color:rgba(245,138,98,.46);
+  box-shadow:0 22px 48px rgba(16,42,67,.12),inset 0 1px 0 rgba(255,255,255,.96)
+}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .top{-webkit-backdrop-filter:blur(18px) saturate(1.15);backdrop-filter:blur(18px) saturate(1.15);background:rgba(247,205,180,.82)}
+  .nav{-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);background:rgba(255,255,255,.68)}
+  #stage .tag,#stage .sv,#stage .proof-metrics .stat,#stage .corners .f,
+  #stage .stackc .corners .f,#stage .core,#stage .glass,#stage .pinfo,
+  #stage .tracks li,#stage .chan a,#stage .chatgpt-card{
+    -webkit-backdrop-filter:blur(14px) saturate(1.12);
+    backdrop-filter:blur(14px) saturate(1.12)
+  }
+  #stage .tag{background:rgba(255,255,255,.76)}
+  #stage .sv{background:rgba(255,255,255,.82)!important}
+  #stage .proof-metrics .stat,#stage .corners .f,#stage .stackc .corners .f{background:rgba(255,255,255,.76)}
+  #stage .core,#stage .glass,#stage .pinfo,#stage .tracks li{background:rgba(255,255,255,.78)!important}
+  #stage .chan a{background:rgba(255,255,255,.76)!important}
+  #stage .chatgpt-card{background:rgba(255,255,255,.80)}
+  #stage .pc .cap,#stage .dk .tx{
+    -webkit-backdrop-filter:blur(14px) saturate(1.12);
+    backdrop-filter:blur(14px) saturate(1.12);background:rgba(237,246,255,.82)
+  }
+}
+@media (max-width:899px){
+  body::after{opacity:.16;background-size:44px 44px}
+  .top{background:rgba(247,205,180,.92)}
+  #stage .chatgpt-card:hover{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  body::after{animation:none}
+  #stage .chatgpt-card,#stage .pc,#stage .dk{transition:none!important}
+  #stage .chatgpt-card:hover,#stage .pc.front:hover,#stage .dk.cf:hover{transform:none!important}
+}
 </style>
 <script src="config.js"></script>
 <script>window.INVENZO_CONFIG=window.INVENZO_CONFIG||{};</script>
