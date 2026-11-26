@@ -3,7 +3,7 @@
 ```
 index.html            public website (3D chapters, projects ring, products deck)
 admin/index.html      admin console  ->  https://invenzoai.in/admin
-config.js             your Supabase URL + anon key (2 lines to fill in)
+config.js             your Supabase URL + anon key + ChatGPT service price
 supabase-setup.sql    database + security rules (run once)
 favicon.png
 ```
@@ -37,6 +37,12 @@ enough; Postgres + login + image storage). The page only talks to it.
    into `config.js`. Never use the `service_role` key anywhere in these files.
 5. Upload the folder. Open `https://invenzoai.in/admin`, sign in, add a project.
    Refresh the main site - it appears on the Projects ring.
+
+## ChatGPT Business Presence & Launch pricing
+
+The standalone service price is set by `CHATGPT_LAUNCH_PRICE` in `config.js`
+(default: `7499`, displayed in Indian rupees). Change that number to update the
+public website price. This is a display-only setting and does not process payments.
 
 ## Using the admin
 
