@@ -262,15 +262,20 @@ body{
     linear-gradient(145deg,#EDF6FF 0%,#F5F9FC 54%,#EAF3FA 100%)
 }
 body::after{
-  opacity:.12;
+  opacity:.18;
   background-image:
-    linear-gradient(rgba(var(--li),.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(var(--li),.025) 1px,transparent 1px),
-    repeating-linear-gradient(135deg,transparent 0 108px,rgba(var(--co),.018) 109px 110px,transparent 111px 220px);
+    linear-gradient(rgba(var(--li),.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(var(--li),.045) 1px,transparent 1px),
+    repeating-linear-gradient(135deg,transparent 0 108px,rgba(var(--co),.065) 109px 110px,transparent 111px 220px);
   background-size:68px 68px,68px 68px,auto;
   mask-image:radial-gradient(ellipse at 70% 46%,#000 0 28%,transparent 84%);
   -webkit-mask-image:radial-gradient(ellipse at 70% 46%,#000 0 28%,transparent 84%);
-  animation-duration:30s
+  transform-origin:50% 35%;
+  animation:adminContourDepth 30s ease-in-out infinite alternate
+}
+@keyframes adminContourDepth{
+  from{transform:perspective(1200px) rotateX(2deg) rotateY(-.5deg) translate3d(-.35rem,.1rem,-8px) scale(1.02)}
+  to{transform:perspective(1200px) rotateX(5deg) rotateY(.5deg) translate3d(.35rem,-.25rem,8px) scale(1.04)}
 }
 .bg i{opacity:.12;filter:blur(100px);animation-duration:32s}
 .bg i:nth-child(1){opacity:.22}
@@ -327,7 +332,7 @@ body::after{
   .card:hover{background:rgba(255,255,255,.86)}
   .card .tag{background:rgba(255,255,255,.84)}
 }
-@media (max-width:899px){body::after{opacity:.08;background-size:76px 76px,76px 76px,auto}}
+@media (max-width:899px){body::after{opacity:.12;background-size:76px 76px,76px 76px,auto;animation-duration:38s}}
 @media (prefers-reduced-motion:reduce){body::after,.bg i{animation:none!important}}
 </style>
 <script src="/config.js"></script>
