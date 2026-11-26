@@ -1233,122 +1233,72 @@ body::after{
   #stage .chatgpt-card:hover,#stage .pc.front:hover,#stage .dk.cf:hover{transform:none!important}
 }
 
-/* ---------- Page-specific background compositions ---------- */
-body::before{opacity:.10;background-size:82px 82px,82px 82px,32px 32px}
-body::after{opacity:.12;background-size:52px 52px;animation-duration:30s}
+/* ---------- Liquid-glass atmosphere ---------- */
+body{
+  background:
+    radial-gradient(ellipse 52rem 38rem at 84% 24%,rgba(185,215,234,.36),transparent 72%),
+    radial-gradient(ellipse 42rem 30rem at 8% 86%,rgba(245,138,98,.10),transparent 74%),
+    linear-gradient(145deg,#F8FBFF 0%,#EDF6FF 56%,#EAF3FA 100%)
+}
+body::before,body::after{display:none!important}
+
+#stage > #home,#stage > #about,#stage > #founder,#stage > #services,
+#stage > #chatgpt,#stage > #proof,#stage > #vision,#stage > #products,
+#stage > #projects,#stage > #stack,#stage > #contact{
+  --orb-x:78%;
+  --orb-y:44%;
+  background:
+    radial-gradient(ellipse 54rem 38rem at 82% 28%,rgba(185,215,234,.24),transparent 74%),
+    radial-gradient(ellipse 40rem 28rem at 10% 86%,rgba(245,138,98,.07),transparent 76%),
+    linear-gradient(145deg,#F8FBFF 0%,#EDF6FF 58%,#EAF3FA 100%)
+}
+#stage > #home{--orb-x:80%;--orb-y:43%}
+#stage > #about{--orb-x:72%;--orb-y:47%}
+#stage > #founder{--orb-x:78%;--orb-y:40%}
+#stage > #services{--orb-x:84%;--orb-y:50%}
+#stage > #chatgpt{--orb-x:58%;--orb-y:27%}
+#stage > #proof{--orb-x:76%;--orb-y:48%}
+#stage > #vision{--orb-x:60%;--orb-y:58%}
+#stage > #products{--orb-x:82%;--orb-y:45%}
+#stage > #projects{--orb-x:80%;--orb-y:45%}
+#stage > #stack{--orb-x:78%;--orb-y:54%}
+#stage > #contact{--orb-x:84%;--orb-y:40%}
 
 #stage > .ch::before{
-  content:"";position:absolute;inset:-8%;z-index:0;pointer-events:none;opacity:.88;
+  content:"";position:absolute;inset:-7%;width:auto;height:auto;border:0;border-radius:0;
+  z-index:0;pointer-events:none;opacity:.94;
   background:
-    radial-gradient(ellipse at 78% 42%,rgba(255,255,255,.54),transparent 46%),
-    repeating-radial-gradient(ellipse at 78% 42%,transparent 0 34px,rgba(16,42,67,.11) 35px 36px,rgba(255,255,255,.64) 37px 38px,transparent 39px 56px),
-    repeating-linear-gradient(145deg,transparent 0 88px,rgba(245,138,98,.15) 89px 90px,rgba(255,255,255,.38) 91px 92px,transparent 93px 184px);
-  transform:perspective(1400px) rotateX(7deg) rotateY(-1.3deg) translate3d(-.5%,.35%,-18px) scale(1.06);
-  transform-origin:50% 40%
+    radial-gradient(circle 25rem at var(--orb-x) var(--orb-y),rgba(255,255,255,.98) 0 4%,rgba(255,255,255,.68) 10%,rgba(185,215,234,.48) 34%,rgba(72,106,138,.20) 57%,rgba(245,138,98,.10) 66%,rgba(255,255,255,.38) 70%,transparent 73%),
+    radial-gradient(ellipse 24rem 3rem at var(--orb-x) calc(var(--orb-y) + 24rem),rgba(16,42,67,.15),transparent 72%),
+    radial-gradient(circle 6rem at calc(var(--orb-x) - 10%) calc(var(--orb-y) - 10%),rgba(255,255,255,.88),transparent 72%),
+    radial-gradient(ellipse 32rem 24rem at 18% 82%,rgba(245,138,98,.10),transparent 74%);
+  transform:perspective(1300px) rotateX(5deg) rotateY(-1.2deg) translate3d(-.3%,.2%,-12px) scale(1.04);
+  transform-origin:50% 45%
 }
+#stage > .ch::after{content:none!important}
 #stage > .ch > .in{position:relative;z-index:1}
-#stage > .ch.is-active::before{animation:chapterContourDepth 28s ease-in-out infinite alternate}
-@keyframes chapterContourDepth{
-  from{
-    transform:perspective(1400px) rotateX(7deg) rotateY(-1.3deg) translate3d(-.5%,.35%,-18px) scale(1.06);
-    background-position:0 0,0 0,0 0
-  }
-  to{
-    transform:perspective(1400px) rotateX(10deg) rotateY(1.3deg) translate3d(.5%,-.35%,10px) scale(1.08);
-    background-position:12px -8px,-8px 6px,10px -6px
-  }
-}
-
-#stage > #home{
-  background:
-    radial-gradient(ellipse at 78% 40%,rgba(185,215,234,.46),transparent 44%),
-    radial-gradient(ellipse at 12% 82%,rgba(245,138,98,.10),transparent 34%),
-    repeating-radial-gradient(ellipse at 78% 40%,transparent 0 30px,rgba(16,42,67,.095) 31px 32px,rgba(255,255,255,.7) 33px 34px,transparent 35px 52px),
-    linear-gradient(135deg,rgba(255,255,255,.34),transparent 58%)
-}
-#stage > #about{
-  background:
-    radial-gradient(ellipse at 18% 24%,rgba(185,215,234,.25),transparent 38%),
-    linear-gradient(132deg,transparent 0 48%,rgba(255,255,255,.34) 48.1% 48.3%,transparent 48.4%),
-    linear-gradient(132deg,transparent 0 54%,rgba(16,42,67,.04) 54.1% 54.2%,transparent 54.3%),
-    repeating-linear-gradient(0deg,transparent 0 76px,rgba(16,42,67,.032) 77px 78px,transparent 79px 154px)
-}
-#stage > #founder{
-  background:
-    radial-gradient(ellipse at 78% 34%,rgba(185,215,234,.18),transparent 42%),
-    repeating-linear-gradient(90deg,transparent 0 104px,rgba(16,42,67,.04) 105px 106px,transparent 107px 210px),
-    linear-gradient(90deg,var(--night) 0%,rgba(217,234,247,.94) 58%,rgba(185,215,234,.72) 100%)
-}
-#stage > #services{
-  background:
-    radial-gradient(ellipse at 82% 48%,rgba(185,215,234,.32),transparent 46%),
-    radial-gradient(ellipse at 14% 88%,rgba(245,138,98,.055),transparent 30%),
-    repeating-linear-gradient(90deg,transparent 0 68px,rgba(16,42,67,.045) 69px 70px,transparent 71px 138px),
-    repeating-linear-gradient(0deg,transparent 0 68px,rgba(16,42,67,.03) 69px 70px,transparent 71px 138px)
-}
-#stage > #chatgpt{
-  background:
-    radial-gradient(ellipse at 52% 12%,rgba(185,215,234,.30),transparent 45%),
-    linear-gradient(145deg,transparent 0 42%,rgba(255,255,255,.28) 42.1% 42.3%,transparent 42.4%),
-    repeating-linear-gradient(135deg,transparent 0 92px,rgba(16,42,67,.04) 93px 94px,transparent 95px 188px)
-}
-#stage > #proof{
-  background:
-    radial-gradient(ellipse at 18% 78%,rgba(245,138,98,.075),transparent 34%),
-    radial-gradient(ellipse at 78% 48%,rgba(185,215,234,.24),transparent 44%),
-    repeating-radial-gradient(ellipse at 78% 48%,transparent 0 38px,rgba(16,42,67,.044) 39px 40px,transparent 41px 61px)
-}
-#stage > #vision{
-  background:
-    radial-gradient(ellipse at 50% 86%,rgba(185,215,234,.28),transparent 42%),
-    linear-gradient(156deg,transparent 0 64%,rgba(245,138,98,.075) 64.1% 64.4%,transparent 64.5%),
-    linear-gradient(0deg,rgba(255,255,255,.24),transparent 55%)
-}
-#stage > #products{
-  background:
-    radial-gradient(ellipse at 83% 46%,rgba(185,215,234,.28),transparent 46%),
-    linear-gradient(135deg,transparent 0 49%,rgba(255,255,255,.32) 49.1% 49.3%,transparent 49.4%),
-    repeating-linear-gradient(90deg,transparent 0 82px,rgba(16,42,67,.04) 83px 84px,transparent 85px 168px)
-}
-#stage > #projects{
-  background:
-    radial-gradient(ellipse at 80% 45%,rgba(185,215,234,.26),transparent 48%),
-    radial-gradient(ellipse at 10% 90%,rgba(245,138,98,.05),transparent 34%),
-    repeating-linear-gradient(90deg,transparent 0 108px,rgba(16,42,67,.04) 109px 110px,transparent 111px 220px)
-}
-#stage > #stack{
-  background:
-    radial-gradient(ellipse at 78% 54%,rgba(185,215,234,.27),transparent 46%),
-    repeating-linear-gradient(0deg,transparent 0 56px,rgba(16,42,67,.04) 57px 58px,transparent 59px 116px),
-    repeating-linear-gradient(90deg,transparent 0 56px,rgba(16,42,67,.04) 57px 58px,transparent 59px 116px)
-}
-#stage > #contact{
-  background:
-    radial-gradient(ellipse at 86% 35%,rgba(185,215,234,.26),transparent 42%),
-    radial-gradient(ellipse at 12% 82%,rgba(245,138,98,.065),transparent 32%),
-    repeating-linear-gradient(145deg,transparent 0 116px,rgba(16,42,67,.04) 117px 118px,transparent 119px 236px)
+#stage > .ch.is-active::before{animation:glassFloat 24s ease-in-out infinite alternate}
+@keyframes glassFloat{
+  from{transform:perspective(1300px) rotateX(5deg) rotateY(-1.2deg) translate3d(-.3%,.2%,-12px) scale(1.04)}
+  to{transform:perspective(1300px) rotateX(7deg) rotateY(1.2deg) translate3d(.3%,-.25%,4px) scale(1.06)}
 }
 @media (max-width:899px){
-  body::before{opacity:.12}
-  body::after{opacity:.16;background-size:52px 52px}
+  #stage > #home,#stage > #about,#stage > #founder,#stage > #services,
+  #stage > #chatgpt,#stage > #proof,#stage > #vision,#stage > #products,
+  #stage > #projects,#stage > #stack,#stage > #contact{
+    --orb-x:116%;
+    --orb-y:40%
+  }
   #stage > .ch::before{
     inset:-4%;opacity:.68;
     background:
-      radial-gradient(ellipse at 112% 42%,rgba(255,255,255,.48),transparent 50%),
-      repeating-radial-gradient(ellipse at 112% 42%,transparent 0 30px,rgba(16,42,67,.09) 31px 32px,rgba(255,255,255,.56) 33px 34px,transparent 35px 52px),
-      repeating-linear-gradient(145deg,transparent 0 116px,rgba(245,138,98,.10) 117px 118px,rgba(255,255,255,.30) 119px 120px,transparent 121px 238px);
-    transform:perspective(1100px) rotateX(4deg) rotateY(-.6deg) translate3d(-.3%,.2%,-10px) scale(1.04);
-    -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.2),#000 38%);
-    mask-image:linear-gradient(90deg,rgba(0,0,0,.2),#000 38%)
+      radial-gradient(circle 17rem at var(--orb-x) var(--orb-y),rgba(255,255,255,.96) 0 4%,rgba(255,255,255,.62) 10%,rgba(185,215,234,.44) 36%,rgba(72,106,138,.18) 58%,rgba(245,138,98,.09) 66%,rgba(255,255,255,.34) 70%,transparent 73%),
+      radial-gradient(ellipse 18rem 2.5rem at var(--orb-x) calc(var(--orb-y) + 18rem),rgba(16,42,67,.12),transparent 72%),
+      radial-gradient(circle 4.5rem at calc(var(--orb-x) - 10%) calc(var(--orb-y) - 8%),rgba(255,255,255,.84),transparent 72%),
+      radial-gradient(ellipse 24rem 20rem at 18% 82%,rgba(245,138,98,.09),transparent 74%);
+    transform:perspective(1000px) rotateX(3deg) rotateY(-.5deg) translate3d(-.2%,.15%,-8px) scale(1.03)
   }
-  #stage > #home{
-    background:
-      radial-gradient(ellipse at 112% 40%,rgba(185,215,234,.36),transparent 48%),
-      radial-gradient(ellipse at 12% 82%,rgba(245,138,98,.08),transparent 34%),
-      repeating-radial-gradient(ellipse at 112% 40%,transparent 0 28px,rgba(16,42,67,.075) 29px 30px,rgba(255,255,255,.64) 31px 32px,transparent 33px 48px),
-      linear-gradient(135deg,rgba(255,255,255,.34),transparent 58%)
-  }
-  #stage > .ch.is-active::before{animation-duration:36s}
+  #stage > .ch.is-active::before{animation-duration:32s}
 }
 @media (prefers-reduced-motion:reduce){
   #stage > .ch.is-active::before{animation:none!important;transform:none!important}
