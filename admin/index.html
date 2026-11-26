@@ -195,6 +195,64 @@ textarea{min-height:6.5rem;resize:vertical}
 }
 @media (max-width:899px){body::after{opacity:.28}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- Shared Invenzo editorial type + interaction system ---------- */
+:root{
+  --type-display:clamp(2rem,4vw,2.7rem);
+  --type-section:clamp(1.55rem,2.5vw,2rem);
+  --type-card:clamp(1.15rem,1.6vw,1.35rem);
+  --type-body:clamp(1rem,.25vw + .95rem,1.0625rem);
+  --type-caption:.8125rem;
+  --focus-soft:rgba(16,42,67,.16);
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,sans-serif
+}
+body{font-family:"Instrument Sans","Segoe UI",system-ui,sans-serif;font-size:var(--type-body);line-height:1.6}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;letter-spacing:-.04em;text-wrap:balance}
+.lock h1{font-size:var(--type-display);line-height:1.06;font-weight:760}
+.bar h2{font-size:var(--type-section);line-height:1.12;font-weight:740}
+.drawer header h2{font-size:var(--type-card);line-height:1.2}
+.card h3{font-size:var(--type-card);line-height:1.2}
+.lock .logo small,.brand span,.card .tag,.hint,.tiny,.demo,.card .meta,.msg,.tabs em{
+  font-size:var(--type-caption);line-height:1.45
+}
+label{font-size:.9rem;line-height:1.4}
+input,textarea,select{font-family:"Instrument Sans","Segoe UI",system-ui,sans-serif;font-size:1rem}
+.tabs{border-radius:12px;padding:.24rem}
+.tabs button{border-radius:9px;font-weight:650}
+.tabs button[aria-selected="true"]{box-shadow:inset 0 -2px 0 var(--brand-text)}
+.btn{border-radius:8px 16px 8px 8px;font-weight:700;letter-spacing:.01em}
+.btn:not(.ghost):not(.danger){box-shadow:0 7px 16px var(--brand-button-shadow),0 2px 0 rgba(16,42,67,.12)}
+.btn:hover:not([disabled]){transform:translateY(-2px)}
+.btn:active:not([disabled]){transform:translateY(1px)}
+.btn.danger{border-radius:16px 8px 16px 8px}
+.btn[disabled]{opacity:.58;cursor:not-allowed}
+.ic{border-radius:8px 12px 8px 8px}
+.card{counter-increment:admin-entry;border-radius:12px 24px 12px 4px;box-shadow:0 14px 34px var(--brand-shadow-card)}
+.grid{counter-reset:admin-entry}
+.card .bd::before{
+  content:counter(admin-entry,decimal-leading-zero) " / Content entry";
+  display:block;margin-bottom:.3rem;color:var(--brand-accent-active);
+  font:700 .78rem/1.3 var(--body);
+  letter-spacing:.1em;text-transform:uppercase
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 42px var(--brand-shadow-card)}
+.card .tag{letter-spacing:.04em}
+.card .meta{line-height:1.5}
+.empty{border-radius:12px 24px 12px 4px}
+.drawer{border-radius:20px 0 0 20px}
+.drawer header,.drawer footer{border-color:var(--brand-border)}
+input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid var(--brand-focus);outline-offset:2px;
+  border-color:var(--brand-focus);box-shadow:0 0 0 4px var(--focus-soft)
+}
+.tabs button:focus-visible,.btn:focus-visible,.ic:focus-visible,
+.pw button:focus-visible,.card .meta a:focus-visible{
+  outline:2px solid var(--brand-accent-active);outline-offset:3px
+}
+@media (max-width:640px){
+  .card .bd::before{font-size:.75rem}
+}
 </style>
 <script src="/config.js"></script>
 <script>window.INVENZO_CONFIG=window.INVENZO_CONFIG||{};</script>

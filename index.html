@@ -1000,6 +1000,134 @@ input:focus-visible,textarea:focus-visible{border-color:var(--coral)!important;b
 @media (max-width:899px) and (max-height:700px){
   .chatgpt-ch{overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior-y:contain!important}
 }
+
+/* ---------- Invenzo editorial type + interaction system ---------- */
+:root{
+  --font-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --font-interface:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --display:var(--font-display);
+  --body:var(--font-interface);
+  --type-hero:clamp(3.25rem,7.2vw,7.6rem);
+  --type-section:clamp(2.15rem,4.2vw,4.8rem);
+  --type-card:clamp(1.2rem,1.6vw,1.55rem);
+  --type-body:clamp(1rem,.35vw + .94rem,1.125rem);
+  --type-caption:.8125rem;
+  --tracking-display:-.045em;
+  --focus-ring:rgba(16,42,67,.2);
+}
+body{font-family:var(--font-interface);font-size:var(--type-body);line-height:1.62}
+#stage h1,#stage h2,#stage h3{font-family:var(--font-display);font-optical-sizing:auto;text-wrap:balance}
+#stage h1,#stage h2{font-weight:760;letter-spacing:var(--tracking-display)}
+#stage h1{font-size:var(--type-hero)!important;line-height:1.02!important}
+#stage h2{max-width:19ch;font-size:var(--type-section)!important;line-height:1.08!important}
+#stage h3{font-size:var(--type-card);line-height:1.2}
+#stage #home h1{max-width:11ch;font-size:var(--type-hero)!important;text-shadow:0 1px 0 rgba(255,255,255,.62),0 2px 0 rgba(16,42,67,.08),0 12px 26px rgba(16,42,67,.12)}
+#stage .lead{max-width:39rem;font-size:var(--type-body);line-height:1.62}
+#stage .ch.is-scrollable{overflow-y:auto!important;overscroll-behavior-y:contain!important}
+#stage .eyebrow,#stage .chatgpt-badge,#stage .chatgpt-limits,
+#stage .tag small,#stage .pinfo small,#stage .chan small,#stage .f small,
+#stage .corner-core small,#stage .stack-core small,#stage .foot{
+  font-size:var(--type-caption);line-height:1.45
+}
+#stage .eyebrow{letter-spacing:.1em}
+#stage .chatgpt-head h2{max-width:16ch}
+#stage .chatgpt-head .lead{max-width:48rem}
+#stage .chatgpt-features li{font-size:.84rem;line-height:1.4}
+
+#stage .journey{counter-reset:journey-step}
+#stage .journey li{counter-increment:journey-step;padding-top:2rem;font-size:.95rem;line-height:1.35}
+#stage .journey li::before{
+  content:counter(journey-step,decimal-leading-zero);top:0;width:auto;height:auto;
+  border:0;border-radius:0;background:none;color:var(--body-ink);
+  font:700 .82rem/1 var(--font-display);letter-spacing:.08em
+}
+#stage .journey li::after{left:2.1rem;top:.42rem}
+#stage .journey li.done::before{border:0;background:none;color:var(--coral);box-shadow:none}
+#stage .journey li.now::before{border:0;background:none;color:var(--ink);box-shadow:none}
+#stage .svcs{counter-reset:service-index}
+#stage .svcs li{counter-increment:service-index}
+#stage .svcs button{border-left-width:2px;padding:.78rem 1rem}
+#stage .svcs .t{
+  display:grid;grid-template-columns:2.7rem minmax(0,1fr);align-items:baseline;gap:.45rem;
+  font-size:clamp(1.15rem,1.55vw,1.45rem);line-height:1.25
+}
+#stage .svcs .t::before{
+  content:counter(service-index,decimal-leading-zero);color:var(--coral);
+  font:700 .82rem/1 var(--font-display);letter-spacing:.08em;
+  padding-right:.45rem;border-right:1px solid var(--line)
+}
+#stage .svcs .d{font-size:.96rem;line-height:1.55}
+#stage .process{counter-reset:delivery-step;gap:.65rem .85rem;margin:1.4rem 0 0;padding:0;list-style:none}
+#stage .process li{
+  counter-increment:delivery-step;display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.9rem;font-weight:600;line-height:1.4;color:var(--ink)
+}
+#stage .process li::before{
+  content:counter(delivery-step,decimal-leading-zero);color:var(--coral);
+  font:700 .78rem/1 var(--font-display);letter-spacing:.06em
+}
+#stage .process li:not(:last-child)::after{content:"/";margin-left:.35rem;color:var(--body-ink);font-weight:400}
+#stage .ring{counter-reset:project-index}
+#stage .pc{counter-increment:project-index}
+#stage .pc .cap::before,#stage .dk .tx::before{
+  display:block;margin-bottom:.5rem;color:var(--coral);
+  font:700 .78rem/1.2 var(--font-interface);letter-spacing:.1em;text-transform:uppercase
+}
+#stage .pc .cap::before{content:counter(project-index,decimal-leading-zero) " / Selected work"}
+#stage .deckwrap{counter-reset:product-index}
+#stage .dk{counter-increment:product-index}
+#stage .dk .tx::before{content:counter(product-index,decimal-leading-zero) " / Invenzo product"}
+#stage .ctl output{
+  color:var(--ink);font:700 .84rem/1.3 var(--font-display);
+  font-variant-numeric:tabular-nums;letter-spacing:.08em
+}
+
+#stage .nav button,#stage .btn,#stage .txt,#stage .svcs button,
+#stage .ctl button,#stage .chan a,#stage .footnav button,#stage .footnav a,
+#stage .menu button,#stage .rail button{
+  transition-duration:.22s
+}
+#stage .nav button{font-size:.92rem;font-weight:600}
+#stage .nav button:focus-visible,#stage .btn:focus-visible,
+#stage .txt:focus-visible,#stage .svcs button:focus-visible,
+#stage .ctl button:focus-visible,#stage .chan a:focus-visible,
+#stage .footnav button:focus-visible,#stage .footnav a:focus-visible,
+#stage .menu button:focus-visible,#stage .rail button:focus-visible{
+  outline:2px solid var(--coral);outline-offset:3px
+}
+#stage .btn:not(.ghost){border-radius:8px 18px 8px 8px;box-shadow:0 8px 18px rgba(16,42,67,.12),0 3px 0 rgba(16,42,67,.12)}
+#stage .btn:not(.ghost):hover{box-shadow:0 12px 22px rgba(16,42,67,.17),0 3px 0 rgba(16,42,67,.12)}
+#stage .btn.ghost{border-radius:18px 8px 18px 8px}
+#stage .btn:active,#stage .ctl button:active{transform:translateY(1px)}
+#stage .btn:disabled,#stage .ctl button:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+#stage input,#stage textarea{
+  font:400 1rem/1.5 var(--font-interface);border-radius:10px 10px 10px 3px
+}
+#stage input:focus-visible,#stage textarea:focus-visible{
+  outline:2px solid var(--coral);outline-offset:2px;
+  border-color:var(--coral);box-shadow:0 0 0 4px var(--focus-ring)
+}
+#stage .pc:focus-visible{outline:2px solid var(--coral);outline-offset:5px}
+@media (max-width:899px){
+  #stage #home h1{font-size:clamp(3.15rem,13vw,5.3rem)!important;line-height:1.04!important}
+  #stage h2{font-size:clamp(2.1rem,8.5vw,3.8rem)!important;line-height:1.08!important}
+  #stage .lead{font-size:1rem;line-height:1.55}
+  #stage .journey li{font-size:.84rem}
+  #stage .journey li::after{left:1.9rem}
+  #stage .svcs .d{font-size:.9rem;line-height:1.45}
+  #stage .chatgpt-head .lead{font-size:.94rem;line-height:1.4}
+  #stage .chatgpt-features li{font-size:.78rem;line-height:1.35}
+  #stage .chatgpt-limits{font-size:.78rem;line-height:1.4}
+  #stage .chatgpt-card .btn{font-size:.84rem}
+  #stage .pc .cap::before,#stage .dk .tx::before{font-size:.75rem}
+}
+@media (prefers-reduced-motion:reduce){
+  #stage #home h1{text-shadow:0 1px 0 rgba(16,42,67,.06)}
+  #stage .nav button,#stage .btn,#stage .txt,#stage .svcs button,
+  #stage .ctl button,#stage .chan a,#stage .footnav button,#stage .footnav a,
+  #stage .menu button,#stage .rail button{transition:none!important}
+  #stage .btn:hover,#stage .ctl button:hover{transform:none!important}
+}
 </style>
 <script src="config.js"></script>
 <script>window.INVENZO_CONFIG=window.INVENZO_CONFIG||{};</script>
@@ -1131,12 +1259,14 @@ input:focus-visible,textarea:focus-visible{border-color:var(--coral)!important;b
         <h2 class="rv" style="--d:0">Four capabilities. One technology partner.</h2>
         <p class="lead rv" style="--d:1">From first sketch to shipped system, we bring strategy, design, engineering, and intelligence into one focused practice.</p>
         <ul class="svcs rv" style="--d:2" id="svcs" aria-label="Services. Select one to reshape the system on the right.">
-          <li><button aria-pressed="true"><span class="t">01 / Digital</span><span class="d">Websites and digital experiences that make a clear first impression and do useful work.</span></button></li>
-          <li><button aria-pressed="false"><span class="t">02 / Automate</span><span class="d">Business process automation and intelligent workflows that remove repetitive work.</span></button></li>
-          <li><button aria-pressed="false"><span class="t">03 / Engineer</span><span class="d">Custom software and SaaS products designed for real operational needs and future growth.</span></button></li>
-          <li><button aria-pressed="false"><span class="t">04 / Intelligence</span><span class="d">AI-powered applications and intelligent systems that help teams make better decisions.</span></button></li>
+          <li><button aria-pressed="true"><span class="t">Digital</span><span class="d">Websites and digital experiences that make a clear first impression and do useful work.</span></button></li>
+          <li><button aria-pressed="false"><span class="t">Automate</span><span class="d">Business process automation and intelligent workflows that remove repetitive work.</span></button></li>
+          <li><button aria-pressed="false"><span class="t">Engineer</span><span class="d">Custom software and SaaS products designed for real operational needs and future growth.</span></button></li>
+          <li><button aria-pressed="false"><span class="t">Intelligence</span><span class="d">AI-powered applications and intelligent systems that help teams make better decisions.</span></button></li>
         </ul>
-        <p class="process rv" style="--d:3" aria-label="Delivery process">Discover <i>/</i> Design <i>/</i> Develop <i>/</i> Deploy</p>
+        <ol class="process rv" style="--d:3" aria-label="Delivery process">
+          <li>Discover</li><li>Design</li><li>Develop</li><li>Deploy</li>
+        </ol>
         <aside class="web-why rv" style="--d:4">
           <strong>Why your website matters</strong>
           <p>Your website is often the first system a customer meets. We design it to explain your value quickly, build trust, and guide the right action—then automate what happens next.</p>
@@ -1358,12 +1488,16 @@ function fitChapter(){
   var inEl=$('.in',c); if(!inEl)return;
   inEl.style.zoom='1';
   c.scrollTop=0;
-  if(c.id==='chatgpt'&&window.matchMedia('(max-width:899px) and (max-height:700px)').matches)return;
+  c.classList.remove('is-scrollable');
+  if(c.id==='chatgpt'&&window.matchMedia('(max-width:899px) and (max-height:700px)').matches){c.classList.add('is-scrollable');return}
   var cs=getComputedStyle(c), pt=parseFloat(cs.paddingTop)||0, pb=parseFloat(cs.paddingBottom)||0;
   var available=Math.max(280,c.clientHeight-pt-pb);
   var content=inEl.scrollHeight||inEl.offsetHeight;
   var scale=Math.min(1,available/Math.max(content,1));
-  if(scale<.985)inEl.style.zoom=String(Math.max(.72,scale).toFixed(3));
+  if(scale<.985){
+    if(window.matchMedia('(max-width:899px)').matches||scale<.72){c.classList.add('is-scrollable');return}
+    inEl.style.zoom=String(scale.toFixed(3));
+  }
   else inEl.style.zoom='1';
 }
 window.addEventListener('resize',function(){clearTimeout(window.__fitTimer);window.__fitTimer=setTimeout(fitChapter,120)});
@@ -1415,7 +1549,7 @@ window.addEventListener('wheel',function(e){
   var ch=chs[cur]; if(!ch) return;
   var horiz=Math.abs(e.deltaX)>Math.abs(e.deltaY), d=horiz?e.deltaX:e.deltaY;
   if(Math.abs(d)<6) return;
-  if(ch.id==='chatgpt'&&ch.scrollHeight>ch.clientHeight+2&&((d>0&&ch.scrollTop+ch.clientHeight<ch.scrollHeight-2)||(d<0&&ch.scrollTop>0)))return;
+  if(ch.classList.contains('is-scrollable')&&((d>0&&ch.scrollTop+ch.clientHeight<ch.scrollHeight-2)||(d<0&&ch.scrollTop>0)))return;
   e.preventDefault();
   if(performance.now()-lastNav<1000) return;
   go(cur+(d>0?1:-1));
@@ -1436,7 +1570,7 @@ window.addEventListener('touchend',function(e){
   if(performance.now()-lastNav<700) return;
   if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.4) go(cur+(dx<0?1:-1));
   else if(Math.abs(dy)>90&&Math.abs(dy)>Math.abs(dx)*1.4){
-    if(ch.id==='chatgpt'&&ch.scrollHeight>ch.clientHeight+2&&((dy<0&&!tBot)||(dy>0&&!tTop)))return;
+    if(ch.classList.contains('is-scrollable')&&((dy<0&&!tBot)||(dy>0&&!tTop)))return;
     if(dy<0) go(cur+1); else if(dy>0) go(cur-1);
   }
 },{passive:true});
@@ -1448,7 +1582,7 @@ window.addEventListener('keydown',function(e){
   if(flowMode&&['ArrowRight','ArrowDown','ArrowLeft','ArrowUp','PageDown','PageUp','Home','End'].indexOf(e.key)>-1) return;
   var k=e.key;
   var active=chs[cur];
-  if(active&&active.id==='chatgpt'&&active.scrollHeight>active.clientHeight+2&&((k==='ArrowDown'||k==='PageDown')&&active.scrollTop+active.clientHeight<active.scrollHeight-2||(k==='ArrowUp'||k==='PageUp')&&active.scrollTop>0))return;
+  if(active&&active.classList.contains('is-scrollable')&&((k==='ArrowDown'||k==='PageDown')&&active.scrollTop+active.clientHeight<active.scrollHeight-2||(k==='ArrowUp'||k==='PageUp')&&active.scrollTop>0))return;
   if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'){e.preventDefault();go(cur+1)}
   else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();go(cur-1)}
   else if(k==='Home'){e.preventDefault();go(0)}
