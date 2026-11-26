@@ -1267,7 +1267,9 @@ body::before,body::after{display:none!important}
     radial-gradient(ellipse 56rem 40rem at 82% 22%,rgba(185,215,234,.18),transparent 74%),
     linear-gradient(145deg,rgba(251,252,254,.68),rgba(237,246,255,.42) 58%,rgba(234,243,250,.56))
 }
-#stage > .ch::before,#stage > .ch::after{content:none!important}
+#stage > .ch::before{content:none!important}
+#stage > .ch:not(#vision)::after{content:none!important}
+#stage > #vision::after{height:auto;border:0;border-radius:0}
 @media (max-width:899px){
   #ambientArt{
     opacity:.58;
