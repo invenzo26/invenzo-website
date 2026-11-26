@@ -262,8 +262,15 @@ body{
     linear-gradient(145deg,#EDF6FF 0%,#F5F9FC 54%,#EAF3FA 100%)
 }
 body::after{
-  opacity:.22;background-image:radial-gradient(circle,rgba(var(--li),.22) 0 1.3px,transparent 1.9px);
-  background-size:40px 40px;animation-duration:24s
+  opacity:.12;
+  background-image:
+    linear-gradient(rgba(var(--li),.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(var(--li),.025) 1px,transparent 1px),
+    repeating-linear-gradient(135deg,transparent 0 108px,rgba(var(--co),.018) 109px 110px,transparent 111px 220px);
+  background-size:68px 68px,68px 68px,auto;
+  mask-image:radial-gradient(ellipse at 70% 46%,#000 0 28%,transparent 84%);
+  -webkit-mask-image:radial-gradient(ellipse at 70% 46%,#000 0 28%,transparent 84%);
+  animation-duration:30s
 }
 .bg i{opacity:.12;filter:blur(100px);animation-duration:32s}
 .bg i:nth-child(1){opacity:.22}
@@ -320,7 +327,7 @@ body::after{
   .card:hover{background:rgba(255,255,255,.86)}
   .card .tag{background:rgba(255,255,255,.84)}
 }
-@media (max-width:899px){body::after{opacity:.15;background-size:46px 46px}}
+@media (max-width:899px){body::after{opacity:.08;background-size:76px 76px,76px 76px,auto}}
 @media (prefers-reduced-motion:reduce){body::after,.bg i{animation:none!important}}
 </style>
 <script src="/config.js"></script>
